@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    %script{src: "application.js"}
+  %body#burning_ideas
+
+    %form#new_idea{action: "/", method: "POST", onsubmit: "return false"}
+      %fieldset
+        %label{for: "new_idea"} New idea
+        %input#new_idea_description{type: "text"}
+
+    %ul#ideas
+
+    %script{type: "text/template", id: "idea-template"}
+      %span <%= description %>
+      %span.hotness <%= hotness %>
+      %a.hot{href: "#"} Still hot!
