@@ -11,13 +11,21 @@ $ ->
 
     render: ->
       $(this.el).html(this.template(this.model.toJSON()))
+      this.updateHotness()
       this
 
     updateHotness: ->
-      $(".hotness", this.el).text(this.model.get("hotness"))
+      hotness = this.model.get("hotness")
+      $(".hotness .value", this.el).css {width: hotness + "%"}
+      opacity = if hotness < 10
+        0.1
+      else
+        hotness / 100.0
+      $(this.el).css {opacity: opacity}
 
     resetHotness: ->
       this.model.resetHotness()
+      this.updateHotness()
 
     initialize: ->
       this.model.bind "change", this.updateHotness, this

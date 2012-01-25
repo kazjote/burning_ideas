@@ -2,6 +2,7 @@
 %html
   %head
     %script{src: "application.js"}
+    %link{rel: "stylesheet", href: "app.css", type: "text/css", media: "screen", charset: "utf-8"}
   %body#burning_ideas
 
     %form#new_idea{action: "/", method: "POST", onsubmit: "return false"}
@@ -13,5 +14,7 @@
 
     %script{type: "text/template", id: "idea-template"}
       %span <%= description %>
-      %span.hotness <%= hotness %>
-      %a.hot{href: "#"} Still hot!
+      %a.hot{href: "#"}
+        %img{src: "fire_elemental.png"}
+      %span.hotness
+        .value

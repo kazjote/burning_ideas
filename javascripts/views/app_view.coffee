@@ -25,8 +25,12 @@ $ ->
 
     reorder: (idea, newHotness, view) ->
       if idea.previous("hotness") < newHotness
-        element = $(view.el).remove()
-        $("#ideas").prepend(element)
+        element = $(view.el)
+        element.fadeOut "fast", ->
+          $("#ideas").prepend(element)
+          view.updateHotness()
+          element.fadeIn("fast")
+          element.effect("highlight")
 
     initialize: ->
       console.log "Initializing app view"
