@@ -22,7 +22,7 @@ $ ->
   window.IdeaList = Backbone.Collection.extend
     model: Idea
 
-    localStorage: new Store("burning_ideas")
+    url: "/ideas"
 
     updateHotness: ->
       this.each (idea) -> idea.updateHotness()
