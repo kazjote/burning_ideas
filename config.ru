@@ -41,6 +41,7 @@ class Rack::Proxy
       http.request(sub_request)
     end
 
+    puts sub_response.read_body
     headers = {}
     sub_response.each_header do |k,v|
       headers[k] = v unless k.to_s =~ /cookie|content-length|transfer-encoding/i
