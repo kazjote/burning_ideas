@@ -2,6 +2,10 @@ $ ->
   window.AppView = Backbone.View.extend
     el: $("#burning_ideas")
 
+    allIdeaViews: []
+
+    initialized: false
+
     events:
       "submit #new_idea": "create_idea"
 
@@ -15,10 +19,14 @@ $ ->
       false
 
     addAll: ->
-      Ideas.each this.addOne
+      if not this.initialized
+        Ideas.each this.addOne
+        this.initialized = true
 
     addOne: (idea) ->
-      view = new IdeaView {model: idea}
+      view = new IdeaView
+      view.setModel idea
+      App.allIdeaViews.push view
       idea.bind "change:hotness", (idea, newHotness) =>
         App.reorder idea, newHotness, view
       this.$("#ideas").prepend view.render().el
@@ -33,8 +41,6 @@ $ ->
           element.effect("highlight")
 
     initialize: ->
-      console.log "Initializing app view"
-
       Ideas.bind "reset", this.addAll, this
       Ideas.bind "add", this.addOne, this
 

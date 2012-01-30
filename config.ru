@@ -61,9 +61,8 @@ map '/' do
   environment.append_path 'images'
 
   use Rack::Proxy do |req|
-    if req.path =~ %r{^/ideas$}
-      URI.parse("http://localhost:3000/ideas")
-    end
+    match = %r{^/ideas(/\d+)?$}.match req.path
+    URI.parse "http://localhost:3000/ideas#{match[1]}" if match
   end
 
   run environment

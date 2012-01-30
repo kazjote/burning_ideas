@@ -27,6 +27,8 @@ $ ->
       this.model.resetHotness()
       this.updateHotness()
 
-    initialize: ->
+    setModel: (model) ->
+      this.model = model
       this.model.bind "change", this.updateHotness, this
+      this.ideaId = this.model.ideaId
 
