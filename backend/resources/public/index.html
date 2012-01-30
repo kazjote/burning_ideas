@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='application.js'></script>
+    <link charset='utf-8' href='app.css' media='screen' rel='stylesheet' type='text/css' />
+  </head>
+  <body id='burning_ideas'>
+    <form action='/' id='new_idea' method='POST' onsubmit='return false'>
+      <fieldset>
+        <label for='new_idea'>New idea</label>
+        <input id='new_idea_description' type='text' />
+      </fieldset>
+    </form>
+    <ul id='ideas'></ul>
+    <script id='idea-template' type='text/template'>
+      <span><%= description %></span>
+      <a class='hot' href='#'>
+        <img src='fire_elemental.png' />
+      </a>
+      <span class='hotness'>
+        <div class='value'></div>
+      </span>
+    </script>
+  </body>
+</html>

@@ -13,7 +13,9 @@
   (assoc (dissoc idea :last-reset) :hotness (ideas/current-hotness idea)))
 
 (defroutes main-routes
-  (GET "/" [] "<h1>Hello World Wide Web!</h1>")
+  (GET "/" []
+    {:status 301
+     :headers {"Location" "/index.html"}})
   (GET "/ideas" []
     {:status 200
      :headers {"Content-Type" "application/json"}
