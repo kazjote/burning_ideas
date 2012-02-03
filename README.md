@@ -53,6 +53,7 @@ lein deps
 lein ring server
 ```
 
+To run frontend tests go to http://localhost:9292/SpecRunner.html in your browser.
 
 #License
 

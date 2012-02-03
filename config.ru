@@ -59,6 +59,7 @@ map '/' do
   environment.append_path 'stylesheets'
   environment.append_path 'templates'
   environment.append_path 'images'
+  environment.append_path 'spec'
 
   use Rack::Proxy do |req|
     match = %r{^/ideas(/\d+)?$}.match req.path
