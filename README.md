@@ -55,6 +55,13 @@ lein ring server
 
 To run frontend tests go to http://localhost:9292/SpecRunner.html in your browser.
 
+To run backend tests:
+
+```bash
+cd backend
+lein test
+```
+
 #License
 
 The MIT License (MIT)

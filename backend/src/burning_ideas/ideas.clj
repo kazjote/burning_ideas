@@ -9,8 +9,11 @@
         time-diff (clj-time/in-secs (clj-time/interval last-reset (clj-time/now)))]
     (max (- 100 time-diff) 0)))
 
+(defn find-idea [id]
+  (val (find @ideas-hash id)))
+
 (defn modify-hotness [id]
-  (let [oldIdea (val (find @ideas-hash id))
+  (let [oldIdea (find-idea id)
         newIdea (assoc oldIdea :last-reset (clj-time/now))]
     (swap! ideas-hash assoc id newIdea)
     newIdea))
