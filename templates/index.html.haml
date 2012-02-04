@@ -18,3 +18,14 @@
         %img{src: "fire.png"}
       %span.hotness
         .value
+
+    :javascript
+      $(function() {
+        window.Ideas = new IdeaList()
+        window.App = new AppView()
+
+        setInterval(function() {
+          Ideas.refresh()
+        }, 200)
+      })
+

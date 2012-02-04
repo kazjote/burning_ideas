@@ -28,11 +28,5 @@ $ ->
             newIdeas.push ideaData
 
         _.each newIdeas, (newIdea) ->
-          Ideas.add newIdea
-
-    initialize: ->
-      ideas = this
-      setInterval ( -> ideas.refresh()), 200
-
-  window.Ideas = new IdeaList
+          ideas.add newIdea
 

@@ -46,5 +46,3 @@ $ ->
 
       Ideas.fetch()
 
-  window.App = new AppView
-

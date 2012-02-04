@@ -7,10 +7,9 @@ $ ->
 
     className: "idea"
 
-    template: _.template $("#idea-template").html()
-
     render: ->
-      $(this.el).html(this.template(this.model.toJSON()))
+      template = _.template $("#idea-template").html()
+      $(this.el).html(template(this.model.toJSON()))
       this.updateHotness()
       this
 
